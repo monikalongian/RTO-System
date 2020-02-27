@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="dashboard.php">Home </a>
+      <a class="nav-item nav-link active" href="vehicle.php">Vehicle </a>
+      <a class="nav-item nav-link" href="insurance.php">Insurance </a>
+      <a class="nav-item nav-link" href="pollution.php">Pollution </a>
+      <a class="nav-item nav-link" href="#">Traffic Fine <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+<h3 align="center"><u>UPDATE VEHICLE DETAILS</u></h3>
+<form action="vinsert.php" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">RC Number</label>
+    <input type="text" class="form-control" id="" name="rcno"  placeholder="Enter Rc Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">vehicle Number</label>
+    <input type="text" class="form-control" id="" name="vno" placeholder="Vehicle Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"> vehicle chassis number</label>
+    <input type="text" class="form-control" id="" name="vchassis" placeholder="Vehicle Chassis Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">vehicle engine number</label>
+    <input type="text" class="form-control" id="" name="vengine" placeholder="Vehicle Engine Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">owner name</label>
+    <input type="text" class="form-control" id="" name="name" placeholder="Owner Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">owner father name</label>
+    <input type="text" class="form-control" id="" name="fname" placeholder="Owner Father Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">owner address</label>
+    <input type="text" class="form-control" id="" name="address" placeholder="address">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">owner email id</label>
+    <input type="text" class="form-control" id="" name="email" placeholder="email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">vehicle company name</label>
+    <input type="text" class="form-control" id="" name="vcompany" placeholder="Vehicle Company Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">vehicle type </label>
+    <input type="text" class="form-control" id="" name="vtype" placeholder="Vehicle Type">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">vehicle type </label>
+    <input type="text" class="form-control" id="" name="vdate" placeholder="Vehicle Type">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
