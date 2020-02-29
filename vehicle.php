@@ -46,48 +46,49 @@
 
     </tr>
   </thead>
+  <?php 
+
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "rtosystem";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) 
+{
+  die("connection failed: ".$conn->connect_error);
+}
+// echo "connect successfully";
+
+
+ $sql= ("Select * FROM vehicle");
+      $res = $conn->query($sql);
+
+  if ($res->num_rows >0){
+    $num=1;
+            while ($row = $res->fetch_assoc()) {    
+  
+
+ ?>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>564546</td>
-      <td>PB08 B2342</td>
-      <td>Bajaj</td>
-      <td>Car</td>
-      <td>2018</td>
-      <td>Harpal Singh</td>
-      <td>harpal@gmail.com</td>
-      <td><button type="button" class="btn btn-secondary">Update</button></td>
-      <td><button type="button" class="btn btn-secondary">Delete</button></td>
+      <th scope="row"><?php echo $num;$num++;?></th>
+      <td><?php echo $row['rcno']; ?></td>
+      <td><?php echo $row['vno']; ?></td>
+      <td><?php echo $row['vcompany']; ?></td>
+      <td><?php echo $row['vtype']; ?></td>
+      <td><?php echo $row['vdate']; ?></td>
+      <td><?php echo $row['name']; ?></td>
+      <td><?php echo $row['email']; ?></td>
+      <td><button type="button" class="btn btn-secondary" onclick="window.location.href = 'vehicleupdate.php?rcno=<?php echo $row['rcno']; ?>';">Update</button></td>
+      <td><button type="button" class="btn btn-secondary" onclick="window.location.href = 'vdelete.php?rcno=<?php echo $row['rcno']; ?>';">Delete</button></td>
       <td>Click</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>896733</td>
-      <td>PB35 F7654</td>
-      <td>Hero</td>
-      <td>Bike</td>
-      <td>2019</td>
-      <td>Aman Singh</td>
-      <td>aman@gmail.com</td>
-      <td><button type="button" class="btn btn-secondary">Update</button></td>
-      <td><button type="button" class="btn btn-secondary">Delete</button></td>
-      <td>Click</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>546467</td>
-      <td>PB35 D6567</td>
-      <td>Skoda</td>
-      <td>Car</td>
-      <td>2017</td>
-      <td>Amrit</td>
-      <td>amrit@gmail.com</td>
-      <td><button type="button" class="btn btn-secondary">Update</button></td>
-      <td><button type="button" class="btn btn-secondary">Delete</button></td>
-      <td>Click</td>
-    </tr>
+     <?php } ?>
   </tbody>
 </table>
+<?php } ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

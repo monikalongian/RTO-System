@@ -1,5 +1,5 @@
 <?php
-
+$rcno = $_GET['rcno'];
 
 $servername="localhost";
 $username="root";
@@ -13,11 +13,11 @@ die('connection failed:'.$conn->connect_error);
 }
  echo "connect successfully";
 
-$sql="DELETE FROM pollution WHERE rcno='4521854'";
+$sql="DELETE FROM pollution WHERE rcno='$rcno'";
 if($conn->query($sql)===TRUE)
 {
 	echo"record deleted successfully";
-	header('Refresh: 2; URL=userdata.php');
+	header('Refresh: 2; URL=pollution.php');
  }
 else{
 	echo"error deleting record:".$conn->error;

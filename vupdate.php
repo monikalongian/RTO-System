@@ -1,19 +1,18 @@
 <?php 
  
-$rcno='4521854';
-$vno='425';
-$vchassis='01326';
-$vengine='521364';
-$name='vivek longian';
-$fname='seva singh';
-$address='hffddghj vghjlkoo';
-$email='monikalongian1712@gmail.com';
-$vcompany='tata';
-$vtype='2';
-$vdate='12-5-2020';
-
-
-
+if (isset($_POST['submit']))
+{
+$rcno=$_POST['rcno'];
+$vno=$_POST['vno'];
+$vchassis=$_POST['vchassis'];
+$vengine=$_POST['vengine'];
+$name=$_POST['name'];
+$fname=$_POST['fname'];
+$address=$_POST['address'];
+$email=$_POST['email'];
+$vcompany=$_POST['vcompany'];
+$vtype=$_POST['vtype'];
+$vdate=$_POST['vdate'];
 
 
 $servername = "localhost";
@@ -33,8 +32,8 @@ $sql="UPDATE vehicle SET vno='$vno',vchassis='$vchassis',vengine='$vengine',name
 if($conn->query($sql)===TRUE)
 {
 	echo"data Updated";
-	header('Refresh: 5; URL=userdata.php'); 
+	header('Refresh: 2; URL=vehicle.php'); 
 }
 
-//}
+}
 ?>

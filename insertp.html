@@ -1,7 +1,3 @@
-<?php
-include 'count.php';
-
- ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +10,7 @@ include 'count.php';
 
     <title>Dashboard</title>
   </head>
-  <body bgcolor="#b4cde4">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Dashboard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,50 +18,36 @@ include 'count.php';
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="dashboard.php">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="vehicle.php">Vehicle</a>
-      <a class="nav-item nav-link" href="insurance.php">Insurance</a>
-      <a class="nav-item nav-link" href="pollution.php">Pollution</a>
-      <a class="nav-item nav-link" href="fine.php">Traffic Fine</a>
+      <a class="nav-item nav-link" href="dashboard.php">Home </a>
+      <a class="nav-item nav-link active" href="vehicle.php">Vehicle </a>
+      <a class="nav-item nav-link" href="insurance.php">Insurance </a>
+      <a class="nav-item nav-link" href="pollution.php">Pollution </a>
+      <a class="nav-item nav-link" href="#">Traffic Fine <span class="sr-only">(current)</span></a>
     </div>
   </div>
 </nav>
-<br>
-<center>
-<span class="d-inline p-2 bg-primary text-white">Welcome to the Regional Transport Office System</span></center>
-<br>
-<div class="card-deck">
-  <div class="card bg-info text-white">
-    <div class="card-header">Vehicle Registered</div>
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $countv; ?></h5>
-      <p class="card-text">Number of vehicle registered in RTO.</p>
+<h3 align="center"><u>ADD POLLUTION DETAILS</u></h3>
+<form action="pinsert.php" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">RC Number</label>
+      <input type="text" class="form-control" name="rcno" placeholder="Enter RC Number">
     </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Pollution ID</label>
+      <input type="text" class="form-control" name="pid" placeholder="Enter pollution id">
     </div>
-  </div>
-  <div class="card bg-secondary text-white">
-    <div class="card-header">Insurance Issued</div>
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $counti; ?></h5>
-      <p class="card-text">Number of insurance issued for vehicle.</p>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">POLLUTION DATE</label>
+      <input type="date" class="form-control" name="pdate" placeholder="Pollution Date">
     </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">POLLUTION CITY</label>
+      <input type="text" class="form-control" name="pcity" placeholder="pollution city">
     </div>
-  </div>
-  <div class="card bg-info text-white ">
-    <div class="card-header">Pollution Issued</div>
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $countp; ?></h5>
-      <p class="card-text">Number of pollution paper tested for vehicle.</p>
     </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-</div>
+  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+</form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -1,10 +1,12 @@
 <?php 
- 
-$rcno='4521854';
-$ino='425';
-$icompany='tata';
-$icity='blore';
-$idate='11-05-2020';
+if (isset($_POST['submit']))
+{
+
+$rcno=$_POST['rcno'];
+$ino=$_POST['ino'];
+$icompany=$_POST['icompany'];
+$icity=$_POST['icity'];
+$idate=$_POST['idate'];
 
 
 
@@ -28,8 +30,7 @@ $sql="UPDATE insurance SET ino='$ino',icompany='$icompany',icity='$icity',idate=
 if($conn->query($sql)===TRUE)
 {
 	echo"data Updated";
-	header('Refresh: 5; URL=userdata.php'); 
+	header('Refresh: 2; URL=insurance.php'); 
 }
-
-//}
+}
 ?>

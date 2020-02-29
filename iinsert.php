@@ -1,11 +1,12 @@
 <?php
 
+if (isset($_POST['submit']))
 {
-$rcno='4521854';
-$ino='425';
-$icompany='tata';
-$icity='mumbai';
-$idate='15-5-2020';
+$rcno=$_POST['rcno'];
+$ino=$_POST['ino'];
+$icompany=$_POST['icompany'];
+$icity=$_POST['icity'];
+$idate=$_POST['idate'];
 
 
 
@@ -26,7 +27,7 @@ $sql="INSERT INTO insurance (rcno,ino,icompany,icity,idate)VALUES('$rcno','$ino'
 if($conn->query($sql)===TRUE)
 {
 	echo"data inserted";
-	header('Refresh:5;URL=dashboard.php');
+	header('Refresh:2;URL=insurance.php');
 
  }
 }

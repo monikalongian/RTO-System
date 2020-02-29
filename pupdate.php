@@ -1,14 +1,12 @@
 <?php 
- 
-$rcno='4521854';
-$pid='11111';
-$pdate='22-06-2020';
-$pcity='blore';
+  
+if (isset($_POST['submit']))
+{
 
-
-
-
-
+$rcno=$_POST['rcno'];
+$pid=$_POST['pid'];
+$pdate=$_POST['pdate'];
+$pcity=$_POST['pcity'];
 
 
 $servername = "localhost";
@@ -28,8 +26,8 @@ $sql="UPDATE pollution SET pid='$pid',pdate='$pdate',pcity='$pcity' WHERE rcno='
 if($conn->query($sql)===TRUE)
 {
 	echo"data Updated";
-	header('Refresh: 5; URL=userdata.php'); 
+	header('Refresh: 5; URL=pollution.php'); 
 }
 
-//}
+}
 ?>

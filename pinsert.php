@@ -1,12 +1,10 @@
 <?php
-
+if (isset($_POST['submit']))
 {
-$rcno='4521854';
-$pid='425';
-$pdate='10-5-2020';
-$pcity='delhi';
-
-
+$rcno=$_POST['rcno'];
+$pid=$_POST['pid'];
+$pdate=$_POST['pdate'];
+$pcity=$_POST['pcity'];
 
 
 $servername="localhost";
@@ -21,11 +19,11 @@ die('connection failed:'.$conn->connect_error);
 }
  echo "connect successfully";
 
-$sql="INSERT INTO pollution(rcno,pid,pdate,pcity)VALUES('$rcno','$pid','$pdate','$pcity')";
+$sql="INSERT INTO pollution(rcno, pid, pdate, pcity)VALUES('$rcno','$pid','$pdate','$pcity')";
 if($conn->query($sql)===TRUE)
 {
 	echo"data inserted";
-	header('Refresh:5;URL=dashboard.php');
+	header('Refresh:5;URL=pollution.php');
 
  }
 }

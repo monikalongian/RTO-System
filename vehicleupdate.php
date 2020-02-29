@@ -26,57 +26,91 @@
     </div>
   </div>
 </nav>
-<h3 align="center"><u>ADD VEHICLE DETAILS</u></h3>
-<form action="vinsert.php" method="POST">
+<h3 align="center"><u>UPDATE VEHICLE DETAILS</u></h3>
+
+ <?php 
+$rcno = $_GET['rcno'];
+
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "rtosystem";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) 
+{
+  die("connection failed: ".$conn->connect_error);
+}
+// echo "connect successfully";
+
+
+ $sql= ("SELECT * FROM vehicle WHERE rcno='$rcno'");
+      $res = $conn->query($sql);
+
+  if ($res->num_rows >0){
+  while ($row = $res->fetch_assoc()) {   
+     $rcno = $row['rcno'];
+     $vno  = $row['vno'];
+     $vchassis= $row['vchassis'];
+     $vengine = $row['vengine'];
+     $name = $row['name'];
+     $fname = $row['fname'];
+     $address = $row['address'];
+     $email = $row['email'];
+     $vcompany = $row['vcompany'];
+     $vtype= $row['vtype'];
+     $vdate= $row['vdate'];
+  
+}
+}
+ ?>
+
+<form action="vupdate.php" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">RC Number</label>
-      <input type="text" class="form-control" name="rcno" placeholder="Enter RC Number">
+      <input type="text" class="form-control" value="<?php echo $rcno  ?>" name="rcno" readonly>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Vehicle Number</label>
-      <input type="text" class="form-control" name="vno" placeholder="Enter vehicle Number">
+      <input type="text" class="form-control" value="<?php echo $vno  ?>" name="vno">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Vehicle Chassis Number</label>
-      <input type="text" class="form-control" name="vchassis" placeholder="Enter Chassis Number">
+      <input type="text" class="form-control" value="<?php echo $vchassis  ?>" name="vchassis">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Vehiche Engine Number</label>
-      <input type="text" class="form-control" name="vengine" placeholder="Enter Engine Number">
+      <input type="text" class="form-control" value="<?php echo $vengine  ?>" name="vengine">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4"> name</label>
-      <input type="text" class="form-control" name="name" placeholder="Enter owner name">
+      <input type="text" class="form-control" value="<?php echo $name  ?>" name="name">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">fname</label>
-      <input type="text" class="form-control" name="fname" placeholder="Enter father name">
+      <input type="text" class="form-control" value="<?php echo $fname ?>" name="fname">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">address</label>
-      <input type="text" class="form-control" name="address" placeholder="Enter address">
+      <input type="text" class="form-control" value="<?php echo $address  ?>" name="address">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">email</label>
-      <input type="text" class="form-control" name="email" placeholder="Enter email">
+      <input type="email" class="form-control" value="<?php echo $email ?>" name="email">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Vehicle Company</label>
-      <input type="text" class="form-control" name="vcompany" placeholder="Enter Company">
+      <input type="text" class="form-control" value="<?php echo $vcompany  ?>" name="vcompany">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputState">Vehicle Type</label>
-      <select name="vtype" class="form-control">
-        <option selected>Choose...</option>
-        <option value="Two wheeler">Two wheeler -Bike/Scooty</option>
-        <option value="Four wheeler">Four wheeler - Car</option>
-        <option value="Truck">Heavy wheeler - Truck</option>
-      </select>
+      <label for="inputPassword4">Vehicle Type</label>
+      <input type="text" class="form-control" value="<?php echo $vtype ?>" name="vtype">
     </div>
     <div class="form-group col-md-6">
-      <label >Vehicle Purchase Date</label>
-      <input type="date" class="form-control" name="vdate" placeholder="Enter Vehicle Purchase Date">
+      <label for="inputPassword4">Vehicle Purchase Date</label>
+      <input type="date" class="form-control" value="<?php echo $vdate  ?>" name="vdate">
     </div>
   </div>
 

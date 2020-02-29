@@ -19,30 +19,17 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="dashboard.php">Home </a>
-      <a class="nav-item nav-link" href="vehicle.php">Vehicle </a>
-      <a class="nav-item nav-link active" href="#">Insurance <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="pollution.php">Pollution</a>
-      <a class="nav-item nav-link" href="fine.php">Traffic Fine</a>
+      <a class="nav-item nav-link active" href="vehicle.php">Vehicle </a>
+      <a class="nav-item nav-link" href="insurance.php">Insurance </a>
+      <a class="nav-item nav-link" href="pollution.php">Pollution </a>
+      <a class="nav-item nav-link" href="#">Traffic Fine <span class="sr-only">(current)</span></a>
     </div>
   </div>
 </nav>
-<button type="button" class="btn btn-info" onclick="window.location.href = 'inserti.html';">Add Insurance</button>
+<h3 align="center"><u>UPDATE POLLUTION DETAILS</u></h3>
 
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">RC Number</th>
-      <th scope="col">Insurance Number</th>
-      <th scope="col">Insurance Company</th>
-      <th scope="col">Insurance City</th>
-      <th scope="col">Insurance Date</th>
-      <th scope="col">Action</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-   <?php 
+ <?php 
+$rcno = $_GET['rcno'];
 
 $servername = "localhost";
 $username   = "root";
@@ -58,32 +45,44 @@ if ($conn->connect_error)
 // echo "connect successfully";
 
 
- $sql= ("Select * FROM insurance");
+ $sql= ("SELECT * FROM pollution WHERE rcno='$rcno'");
       $res = $conn->query($sql);
 
   if ($res->num_rows >0){
-    $num=1;
-            while ($row = $res->fetch_assoc()) {    
+  while ($row = $res->fetch_assoc()) {   
+     $rcno = $row['rcno'];
+     $pid  = $row['pid'];
+     $pdate= $row['pdate'];
+     $pcity = $row['pcity'];
+     
   
-
+}
+}
  ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $num;$num++;?></th>
-      <td><?php echo $row['rcno']; ?></td>
-      <td><?php echo $row['ino']; ?></td>
-      <td><?php echo $row['icompany']; ?></td>
-      <td><?php echo $row['icity']; ?></td>
-      <td><?php echo $row['idate']; ?></td>
-      
-      <td><button type="button" class="btn btn-secondary"onclick="window.location.href = 'insuranceupdate.php?rcno=<?php echo $row['rcno']; ?>';">update</button></td>
-      <td><button type="button" class="btn btn-secondary"onclick="window.location.href = 'idelete.php?rcno=<?php echo $row['rcno']; ?>';">delete</button></td>
 
-    </tr>
-    <?php } ?>
-  </tbody>
-</table>
-<?php } ?>
+<form action="pupdate.php" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">RC Number</label>
+      <input type="text" class="form-control" value="<?php echo $rcno  ?>" name="rcno" readonly>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Pollution Id</label>
+      <input type="text" class="form-control" value="<?php echo $pid ?>" name="pid">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Pollution Date</label>
+      <input type="text" class="form-control" value="<?php echo $pdate  ?>" name="pdate">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Pollution City</label>
+      <input type="text" class="form-control" value="<?php echo $pcity ?>" name="pcity">
+    </div>
+    
+  </div>
+
+  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+</form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
