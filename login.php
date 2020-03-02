@@ -9,6 +9,9 @@ $servername = "localhost";
 $username   = "root";
 $password   = "";
 $dbname     = "rtosystem";
+if ($email == "rtopolice"  && $pass == "police123") {
+  header('Refresh: 1; URL=upload.php');
+} else {
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -41,5 +44,7 @@ if ($res->num_rows ==0)
                         echo "Wrong Email Id";
                         header('Refresh: 2; URL=login.html');
                   }
+  
+}
 }
 ?>
