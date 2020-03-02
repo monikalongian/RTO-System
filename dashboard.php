@@ -27,6 +27,7 @@ include 'count.php';
       <a class="nav-item nav-link" href="insurance.php">Insurance</a>
       <a class="nav-item nav-link" href="pollution.php">Pollution</a>
       <a class="nav-item nav-link" href="fine.php">Traffic Fine</a>
+      <a class="nav-item nav-link" href="logout.php">Logout</a>
     </div>
   </div>
 </nav>
